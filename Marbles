@@ -1,0 +1,47 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Solution
+{
+    public static boolean Vowel(char ch){
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+        return true;
+        else return false;
+    }
+    public static int MarblesCount(int n,String S,String P){
+        int count=0,ans=Integer.MAX_VALUE;
+        for(char j='a';j<='z';j++){
+        count=0;
+        char[] s=S.toCharArray();
+        char[] p=P.toCharArray();
+        for(int i=0;i<n;i++){
+            if(s[i]=='?')
+               s[i]=j;
+            if(p[i]=='?')
+              p[i]=j;
+        }
+        for(int i=0;i<n;i++){
+              
+            if(s[i]==p[i])continue;
+            else if(Vowel(s[i])!=Vowel(p[i]))count+=1;
+            else count+=2;
+        }
+        ans=Math.min(count,ans);
+        }
+        return ans;
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t--!=0){
+		    int n=sc.nextInt();
+		    String S=sc.next();
+		    String P=sc.next();
+		    System.out.println(MarblesCount(n,S,P));
+		}
+	}
+}
