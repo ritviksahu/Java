@@ -1,0 +1,38 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/*
+Pattern
+
+
+lets take example
+bbaaaba  steps=5  7-5=2   last 2 will be unchanges which is b a
+at step1: _ _ _ _ b b a      bbaaa :1st element b
+at step2: _ _ _ a b b a      baaa  :last element a
+at step3: _ _ b a b b a      baa   :1st element b  
+at step4: _ a b a b b a      aa    :last element a
+at step5: a a b a b b a      a     :1st element a
+*/
+class Solution
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t--!=0){
+		    int n=sc.nextInt();
+		    int k=sc.nextInt();
+		    String s=sc.next();
+		    char[] a=s.toCharArray();
+		    int l=k-1,m=0;
+		    for(int i=k-1,start=0;i>=0;i--,start++){
+		        if(start%2==0)a[i]=s.charAt(m++);
+		        else a[i]=s.charAt(l--);
+		        
+		    }
+		    System.out.println(String.valueOf(a));
+		}
+	}
+}
