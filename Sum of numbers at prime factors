@@ -1,1 +1,59 @@
 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/*
+  int[] arr={15,1,16,7,99,10,3,44,56,3,12,4};
+  int n=12;
+  int num=48;
+  prime factors of 48 is 2 occurance 4 times and 3 occurance is 1 time      
+  initially sum=0;
+ 
+start: factor=2
+it will divide sum until sum%factor==0  is true;
+count=4
+sum=sum + arr[factor]*count    ; sum=0+16*4    ; sum=64
+factor++;
+
+now factor is 3 and num also becomes 3 
+sum=sum + arr[factor]*count    ; sum=64+7*1   ;sum=71
+
+
+return 71
+
+        
+        
+*/
+class Solution
+{
+	public static int SumPrimeFactorIndex(int[] arr,int n,int num){
+        int factor=2;
+        int count=0;
+        int sum=0;
+        while(factor<=num){
+            count=0;
+            while(num%factor==0 && num>0){
+                count++;
+                num=num/factor;
+            }
+
+            if(count>0 && factor<n){
+                sum+=arr[factor]*count;
+            }
+            factor++;
+
+        }
+        return sum;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int num=sc.nextInt();
+        System.out.println(SumPrimeFactorIndex(arr,n,num));
+    }
+}
