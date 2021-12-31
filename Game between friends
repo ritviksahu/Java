@@ -1,0 +1,45 @@
+/*
+sample input 2 3 4 5
+a=2,b=3,c=4,d=5
+
+Now in the first step a<b
+a=a+c    a=2+4   a=6
+
+
+In the next Step   a>=b
+b=b+d    b=3+5   b=8
+
+
+if(a>=b)  ans=N
+
+else   ans=S
+
+for this sample input ans is "S".
+
+*/
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main() {
+	// your code goes here
+	ll t;
+	cin>>t;
+	while(t--){
+	    ll a,b,c,d;
+	    cin>>a>>b>>c>>d;
+	    if(a>=b){
+	        b=b+c;
+	    }else a=a+c;
+	    
+	    if(a>=b){
+	        b=b+d;
+	    }else a=a+d;
+	    
+	    if(a>=b)cout<<"N"<<endl;
+	    else cout<<"S"<<endl;
+	}
+	return 0;
+}
