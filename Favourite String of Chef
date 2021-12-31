@@ -1,0 +1,27 @@
+/*
+You are given a string S of size N that contains both code and chef as a substring. Please determine if S is  called Chef's favourite if every substring chef in S must have a substring code before it.
+
+For which the index of code must be less than the index of chef to make it chefs favorite.
+
+*/
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Solutions
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t--!=0){
+		    int n=sc.nextInt();
+		    String s=sc.next();
+		    if(s.indexOf("code")<s.indexOf("chef"))
+		    System.out.println("AC");
+		    else
+		    System.out.println("WA");
+		}
+	}
+}
